@@ -8,7 +8,8 @@ const generics = [
     id: 'banana-fairtrade',
     name: 'Banana',
     type: 'Fairtrade',
-    peelable: true
+    peelable: true,
+    taste: "Umami"
   },
   {
     id: 'apple-red-delicious',
@@ -24,9 +25,17 @@ const generics = [
   }
 ];
 
+const tasteCategories = [
+  "Sweet",
+  "Sour",
+  "Bitter",
+  "Salty",
+  "Umami",
+];
+
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (generic) => {
-  return generic.firstName.split(' ').join('-').toLowerCase() + '-' + generic.type.split(' ').join('-').toLowerCase();
+  return generic.name.split(' ').join('-').toLowerCase() + '-' + generic.type.split(' ').join('-').toLowerCase();
 };
 
 class GenericApi {
@@ -76,6 +85,13 @@ class GenericApi {
     });
   }
 
+  static getAllTastes() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(tasteCategories);
+      }, delay);
+    });
+  }
 }
 
 export default GenericApi;

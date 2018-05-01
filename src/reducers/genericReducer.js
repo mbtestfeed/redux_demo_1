@@ -4,6 +4,7 @@ import initialState from './initialState';
 export default function generics(state = [], action) {
   switch(action.type) {
     case types.LOAD_GENERICS_SUCCESS:
+      console.log(action);
       return action.generics;
 
     case types.CREATE_GENERIC_SUCCESS:

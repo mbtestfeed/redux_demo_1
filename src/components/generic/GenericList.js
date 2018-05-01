@@ -10,6 +10,7 @@ const GenericList = ({generics}) => {
           <th>Name</th>
           <th>Type</th>
           <th>Peelable</th>
+          <th>Taste</th>
         </tr>
       </thead>
       <tbody>

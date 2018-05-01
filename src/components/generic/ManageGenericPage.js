@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as genericActions from '../../actions/genericActions';
 import GenericForm from './GenericForm';
+import {tastesFormattedForDropdown} from '../../selectors/selectors';
 import toastr from 'toastr';
 
 export class ManageGenericPage extends Component {
@@ -12,6 +13,7 @@ export class ManageGenericPage extends Component {
 
     this.state = {
       generic: Object.assign({}, this.props.generic),
+      tastes: this.props.tastes,
       errors: {},
       saving: false
     };
@@ -76,6 +78,7 @@ export class ManageGenericPage extends Component {
     return (
       <GenericForm
         generic={this.state.generic}
+        tastes={this.props.tastes}
         errors={this.state.errors}
         onSave={this.saveGeneric}
         onChanges={this.updateGenericState}
@@ -88,6 +91,7 @@ export class ManageGenericPage extends Component {
 
 ManageGenericPage.propTypes = {
   generic: PropTypes.object.isRequired,
+  tastes: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 
@@ -105,6 +109,7 @@ function mapStateToProps(state, ownProps) {
   const genericId = ownProps.params.id; // from path '/generic/:id'
 
   let generic = {id: '', name: '', type: '', peelable: false};
+  let allTasteCategories = tastesFormattedForDropdown(state.tastes);
 
   if (genericId && state.generics.length > 0) {
     generic = getGenericById(state.generics, genericId);
@@ -112,7 +117,8 @@ function mapStateToProps(state, ownProps) {
 
   return {
     state: state,
-    generic: generic
+    generic: generic,
+    tastes: allTasteCategories
   };
 }
 

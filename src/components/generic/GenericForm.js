@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextInput from '../common/TextInput';
 import CheckboxInput from '../common/CheckboxInput';
+import SelectInput from '../common/SelectInput';
 
-const GenericForm = ({generic, onSave, onChanges, errors, saving}) => {
+
+const GenericForm = ({generic, tastes, onSave, onChanges, errors, saving}) => {
 
   return (
     <form>
@@ -29,6 +31,14 @@ const GenericForm = ({generic, onSave, onChanges, errors, saving}) => {
         onChange={onChanges}
         error={errors.peelable}
       />
+      <SelectInput
+        name="taste"
+        label="Taste Category"
+        value={generic.taste}
+        onChange={onChanges}
+        options={tastes}
+        error={errors.tasteCategory}
+      />
       <input
         type="submit"
         disabled={saving}
@@ -42,6 +52,7 @@ const GenericForm = ({generic, onSave, onChanges, errors, saving}) => {
 
 GenericForm.propTypes = {
   generic: PropTypes.object.isRequired,
+  tastes: PropTypes.array.isRequired,
   onSave: PropTypes.func.isRequired,
   onChanges: PropTypes.func.isRequired,
   errors: PropTypes.object,

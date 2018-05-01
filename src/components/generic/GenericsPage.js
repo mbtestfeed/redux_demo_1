@@ -44,7 +44,8 @@ GenericsPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    generics: state.generics
+    generics: state.generics,
+    tastes: state.tastes
   };
 }
 

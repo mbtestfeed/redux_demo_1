@@ -9,12 +9,13 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import configureStores from './stores/configureStores';
 import {Provider} from 'react-redux';
 // import { actionOnStart } from './actions/relevantActions';
-import {loadGenerics} from './actions/genericActions';
+import {loadGenerics, loadTastes} from './actions/genericActions';
 import '../node_modules/toastr/build/toastr.min.css';
 
 const store = configureStores();
 // store.dispatch(actionOnStart());
 store.dispatch(loadGenerics());
+store.dispatch(loadTastes());
 
 render (
   <Provider store={store}>
