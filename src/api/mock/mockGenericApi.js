@@ -9,19 +9,24 @@ const generics = [
     name: 'Banana',
     type: 'Fairtrade',
     peelable: true,
-    taste: "Umami"
+    taste: "Umami",
+    image: 'https://cdn0.woolworths.media/content/wowproductimages/large/306510.jpg',
   },
   {
     id: 'apple-red-delicious',
     name: 'Apple',
     type: 'Red Delicious',
-    peelable: false
+    peelable: false,
+    taste: 'Sweet',
+    image: 'http://www.chhajedgarden.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/0/4/04_apples.jpg',
   },
   {
     id: 'peach-georgia',
     name: 'Peach',
     type: 'Georgia',
-    peelable: 'false'
+    peelable: 'false',
+    taste: 'Sour',
+    image: 'http://www.dljproduce.com/wp-content/uploads/2017/10/Peach_iStock-472095722.jpg',
   }
 ];
 

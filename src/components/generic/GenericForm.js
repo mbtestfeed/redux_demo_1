@@ -39,6 +39,13 @@ const GenericForm = ({generic, tastes, onSave, onChanges, errors, saving}) => {
         options={tastes}
         error={errors.tasteCategory}
       />
+      <TextInput
+        name="image"
+        label="Image Link"
+        value={generic.image}
+        onChange={onChanges}
+        error={errors.image}
+      />
       <input
         type="submit"
         disabled={saving}

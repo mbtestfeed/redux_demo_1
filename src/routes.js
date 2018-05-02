@@ -5,6 +5,7 @@ import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
 import GenericsPage from './components/generic/GenericsPage';
 import ManageGenericPage from './components/generic/ManageGenericPage'; //eslint-disable-line import/no-named-as-default
+import ShowGenericPage from './components/generic/ShowGenericPage'; //eslint-disable-line import/no-named-as-default
 
 export default (
   <Route path="/" component={App}>
@@ -13,5 +14,6 @@ export default (
     <Route path="generics" component={GenericsPage} />
     <Route path="generic" component={ManageGenericPage} />
     <Route path="generic/:id" component={ManageGenericPage} />
+    <Route path="generic/show/:id" component={ShowGenericPage} />
   </Route>
 );
