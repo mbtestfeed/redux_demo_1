@@ -97,6 +97,21 @@ class GenericApi {
       }, delay);
     });
   }
+
+  static getAllUmami() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // simulate a DB query
+        let results = [];
+        generics.forEach(function(generic) {
+          if (generic.taste === "Umami"){
+            results.push(generic);
+          }
+        });
+        resolve(results);
+      }, delay);
+    });
+  }
 }
 
 export default GenericApi;

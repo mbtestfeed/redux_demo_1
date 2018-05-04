@@ -6,14 +6,17 @@ import AboutPage from './components/about/AboutPage';
 import GenericsPage from './components/generic/GenericsPage';
 import ManageGenericPage from './components/generic/ManageGenericPage'; //eslint-disable-line import/no-named-as-default
 import ShowGenericPage from './components/generic/ShowGenericPage'; //eslint-disable-line import/no-named-as-default
+import GenericsSortedPage from './components/generic/GenericsSortedPage';
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
     <Route path="about" component={AboutPage} />
     <Route path="generics" component={GenericsPage} />
+    <Route path="generics/umami" component={GenericsSortedPage} />
     <Route path="generic" component={ManageGenericPage} />
     <Route path="generic/:id" component={ManageGenericPage} />
     <Route path="generic/show/:id" component={ShowGenericPage} />
+
   </Route>
 );
