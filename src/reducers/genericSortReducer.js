@@ -7,6 +7,8 @@ export default function genericSort(state = [], action) {
       return action.genericSort;
     case types.GET_TASTE_SUCCESS:
       return action.tasteGenerics;
+    case types.GET_SORTED_SUCCESS:
+      return action.sortedGenerics;
     default:
       return state;
   }

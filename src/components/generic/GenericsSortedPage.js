@@ -14,7 +14,7 @@ class GenericsPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.actions.getTaste(this.props.params.tasteType); // eslint-disable-line
+    this.props.actions.getSorted(this.props.params.column, this.props.params.columnType); // eslint-disable-line
   }
 
   genericRow(generic, index) {

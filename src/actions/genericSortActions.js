@@ -29,3 +29,14 @@ export function getTaste(tasteType) {
     });
   };
 }
+
+export function getSorted(column, columnType) {
+  return function(dispatch) {
+    dispatch(beginAjaxCall());
+    return genericApi.getSorted(column, columnType).then((sortedGenerics) => {
+      dispatch(getAllUmamiSuccess(sortedGenerics));
+    }).catch((error) => {
+      throw(error);
+    });
+  };
+}
