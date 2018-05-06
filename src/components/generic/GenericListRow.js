@@ -16,7 +16,7 @@ const GenericListRow = ({generic}) => {
       <td><Link to={'/generic/show/' + generic.id}>{generic.name}</Link></td>
       <td>{generic.type}</td>
       <td>{peelable}</td>
-      <td>{generic.taste}</td>
+      <td><Link to={'/generics/' + generic.taste}>{generic.taste}</Link></td>
       <td><Link to={'/generic/' + generic.id}>edit</Link></td>
     </tr>
   );

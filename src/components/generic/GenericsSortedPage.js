@@ -10,8 +10,11 @@ class GenericsPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    this.props.actions.getAllUmami();
     this.redirectToAddGenericPage = this.redirectToAddGenericPage.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.actions.getTaste(this.props.params.tasteType); // eslint-disable-line
   }
 
   genericRow(generic, index) {
@@ -34,13 +37,16 @@ class GenericsPage extends React.Component {
 
 GenericsPage.propTypes = {
   genericSort: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  tasteType: PropTypes.string,
 };
 
 function mapStateToProps(state, ownProps) {
+  const tasteType = ownProps.params.taste;
   return {
     genericSort: state.genericSort,
-    tastes: state.tastes
+    tastes: state.tastes,
+    tasteType: tasteType,
   };
 }
 

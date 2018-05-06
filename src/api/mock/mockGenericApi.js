@@ -112,6 +112,21 @@ class GenericApi {
       }, delay);
     });
   }
+
+  static getTaste(tasteType) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // simulate a DB query
+        let results = [];
+        generics.forEach(function(generic) {
+          if (generic.taste.toLowerCase() === tasteType.toLowerCase()){
+            results.push(generic);
+          }
+        });
+        resolve(results);
+      }, delay);
+    });
+  }
 }
 
 export default GenericApi;

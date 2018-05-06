@@ -13,7 +13,7 @@ export default (
     <IndexRoute component={HomePage} />
     <Route path="about" component={AboutPage} />
     <Route path="generics" component={GenericsPage} />
-    <Route path="generics/umami" component={GenericsSortedPage} />
+    <Route path="generics/:tasteType" component={GenericsSortedPage} />
     <Route path="generic" component={ManageGenericPage} />
     <Route path="generic/:id" component={ManageGenericPage} />
     <Route path="generic/show/:id" component={ShowGenericPage} />

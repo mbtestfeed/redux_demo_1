@@ -18,3 +18,14 @@ export function getAllUmami() {
     });
   };
 }
+
+export function getTaste(tasteType) {
+  return function(dispatch) {
+    dispatch(beginAjaxCall());
+    return genericApi.getTaste(tasteType).then((tasteGenerics) => {
+      dispatch(getAllUmamiSuccess(tasteGenerics));
+    }).catch((error) => {
+      throw(error);
+    });
+  };
+}
