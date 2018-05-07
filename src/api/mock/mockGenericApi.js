@@ -134,19 +134,20 @@ class GenericApi {
         // simulate a DB query
         let results = [];
         column = column.toLowerCase();
-        if (columnType === 'true' || columnType === 'false') {
-          columnType = columnType === "true";
-        } else {
-          columnType = columnType.toLowerCase();
-        }
         generics.forEach(function(generic) {
-          console.log(generic[column], columnType);
-          if (generic[column] === columnType){
-
-            results.push(generic);
+          switch (typeof generic[column]) {
+            case 'boolean':
+              if (generic[column] === (columnType === 'true')) {
+                results.push(generic);
+              }
+              break;
+            case 'string':
+            default:
+              if (generic[column].toLowerCase() === columnType.toLowerCase()) {
+                results.push(generic);
+              }
           }
         });
-        console.log(results);
         resolve(results);
       }, delay);
     });
